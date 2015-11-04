@@ -1,5 +1,6 @@
 {
   "name": "pharmacy",
   "version": "0.0.1",
-  "description": "Browser and Node.js library for creating validators and sanitizers"
+  "description": "Browser and Node.js library for creating validators and sanitizers",
+  "main": "src/pharmacy.js"
 }
