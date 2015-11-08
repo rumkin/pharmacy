@@ -1,6 +1,6 @@
 {
   "name": "pharmacy",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Browser and Node.js library for creating validators and sanitizers",
   "main": "src/pharmacy.js",
   "devDependencies": {
