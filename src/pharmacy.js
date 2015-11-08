@@ -5,6 +5,7 @@ void function () {
     exports.Report = require('./report.js');
     exports.Field = require('./field.js');
     exports.Rule = require('./rule.js');
+    exports.Error = require('./error.js');
 
   } else if (typeof window === 'object' && this === window) {
     window.Pharmacy = {};

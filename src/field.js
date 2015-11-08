@@ -102,23 +102,30 @@
 
         var update = (result) => {
             if (result === true) {
+                report.checks++;
                 return;
             }
 
             if (result instanceof Pharmacy.Report) {
                 report.issues.push.apply(report.issues, result.issues);
                 value = report.value = result.value;
+                report.checks += result.checks;
             } else if (Array.isArray(result)) {
                 result.forEach(update);
             } else if (result && typeof result === 'object') {
-                // ... single issue ...
+                value = result.value;
+                report.issues.push({
+                    path: this.path.concat(result.path),
+                    rule: result.name,
+                    value: value
+                });
             } else {
-                // ... if result is not a true or report or array of issues or issue
                 report.issues.push({
                     path: this.path.slice(),
                     rule: check.name,
                     value: value
                 });
+                report.checks++;
             }
         };
 

@@ -20,6 +20,7 @@
         options = options || {};
         this.issues = options.issues || [];
         this.value = options.value;
+        this.checks = 0;
     }
 
     /**

@@ -177,8 +177,6 @@
             throw new Error('Recipe should be an object or a string');
         }
 
-        console.log('REcipe', recipe);
-
         var field = new this.Field({
             path: null,
             value: value,
@@ -203,7 +201,7 @@
             if (report.isValid) {
                 return report.value;
             } else {
-                throw new Error('Data validation failed');
+                throw new Phantom.Error('Data validation failed');
             }
         });
     };

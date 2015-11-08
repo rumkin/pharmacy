@@ -2,5 +2,13 @@
   "name": "pharmacy",
   "version": "0.0.1",
   "description": "Browser and Node.js library for creating validators and sanitizers",
-  "main": "src/pharmacy.js"
+  "main": "src/pharmacy.js",
+  "devDependencies": {
+    "blanket": "^1.1.9",
+    "mocha": "^2.3.3",
+    "unit.js": "^2.0.0"
+  },
+  "scripts": {
+    "test": "$NODE node_modules/mocha/bin/mocha test/*.spec.js"
+  }
 }
