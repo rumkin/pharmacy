@@ -54,6 +54,7 @@
     var report = this.report = new Pharmacy.Report();
     var rules = this.recipe.getRules();
     var value = this.value;
+    var accept;
     var check;
 
     return new Promise((resolve, reject) => {
@@ -78,6 +79,7 @@
                     }
                 }
 
+                accept = check.accept;
                 value = rule.filter(check.accept, value, this);
                 report.value = value;
 
@@ -116,14 +118,18 @@
                 value = result.value;
                 report.issues.push({
                     path: this.path.concat(result.path),
-                    rule: result.name,
-                    value: value
+                    rule: result.name || check.name,
+                    value: value,
+                    accept: result.accept,
+                    current: result.got
                 });
             } else {
                 report.issues.push({
                     path: this.path.slice(),
                     rule: check.name,
-                    value: value
+                    value: value,
+                    accept: accept,
+                    current: false
                 });
                 report.checks++;
             }

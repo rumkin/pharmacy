@@ -37,6 +37,16 @@ var store = new Pharmacy.Store({
                 return field.isBoolean() === accept;
             }
         },
+        isA(accept, value, field) {
+            if (value !== 'a') {
+                return {
+                    path: [],
+                    value: value,
+                    accept: 'a',
+                    got: value
+                };
+            }
+        },
         // Nested check properties
         props(accept, value, field) {
             if (! field.isObject()) {
@@ -151,6 +161,12 @@ store.addRecipe('boolean', {
 // Sanitation example: convert `'yes'` to `true`.
 store.sanitize('yes', 'boolean').then(function (result) {
     console.log('Sanitation result is', inspect(result, {colors: true}));
+}).catch(function (error) {
+    console.error(error.stack);
+});
+
+store.validate('', {isA: true}).then(function (result) {
+    console.log('isA', inspect(result, {colors: true}));
 }).catch(function (error) {
     console.error(error.stack);
 });
