@@ -1,6 +1,6 @@
 {
   "name": "pharmacy",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "description": "Browser and Node.js library for creating validators and sanitizers",
   "repository": "rumkin/pharmacy",
   "main": "src/pharmacy.js",
@@ -11,5 +11,6 @@
   },
   "scripts": {
     "test": "$NODE node_modules/mocha/bin/mocha test/*.spec.js"
-  }
+  },
+  "tonicExampleFilename": "examples/tonic.js"
 }
