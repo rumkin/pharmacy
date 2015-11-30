@@ -10,6 +10,20 @@
     Pharmacy = window.Pharmacy;
   }
 
+  /**
+   * @typedef {object} FieldOptions
+   * @property {string[]} path Field path value.
+   * @property {*} value Value to validate.
+   * @property {Store} store Pharmacy store object.
+   * @property {Recipe} recipe Pharmacy recipe instance.
+   */
+
+  /**
+   * Field is an object which validate value with recipes from store.
+   *
+   * @param {FieldOptions} options Field options object.
+   * @constructor
+   */
   function Field(options) {
     if (typeof options !== 'object') {
       throw new Error('Options should be an object');
@@ -23,6 +37,11 @@
     this.useRecipe(options.recipe);
   }
 
+  /**
+   * Apply recipe to field object.
+   *
+   * @param  {Recipe} recipe Recipe object with validation rules set.
+   */
   Field.prototype.useRecipe = function (recipe) {
     Object.getOwnPropertyNames(recipe.rules).forEach((name) => {
       var rule = this.store.findRule(name);
@@ -32,6 +51,14 @@
     });
   };
 
+  /**
+   * Create child field if current value is complex.
+   *
+   * @param  {string|string[]} path   Child field path.
+   * @param  {*} value  Child field value.
+   * @param  {string|Recipe} recipe Child field recipe.
+   * @return {Field}        New field instance.
+   */
   Field.prototype.child = function (path, value, recipe) {
     recipe = Pharmacy.Recipe.to(recipe);
 
@@ -45,6 +72,11 @@
     return field;
   };
 
+  /**
+   * Validate field value.
+   *
+   * @return {Promise} Promise with report as result.
+   */
   Field.prototype.validate = function () {
     if (this.report) {
         // TODO What to do with error?
