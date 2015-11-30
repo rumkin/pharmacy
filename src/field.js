@@ -148,7 +148,7 @@
                 result.forEach(update);
             } else if (result && typeof result === 'object') {
                 value = result.value;
-                report.issues.push({
+                report.addIssue({
                     path: this.path.concat(result.path),
                     rule: result.name || check.name,
                     value: value,
@@ -156,7 +156,7 @@
                     current: result.got
                 });
             } else {
-                report.issues.push({
+                report.addIssue({
                     path: this.path.slice(),
                     rule: check.name,
                     value: value,
