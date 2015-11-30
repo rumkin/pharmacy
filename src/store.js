@@ -198,10 +198,10 @@
     */
     Store.prototype.sanitize = function (value, recipe) {
         return this.validate(value, recipe).then(function (report) {
-            if (report.isValid) {
+            if (report.isValid()) {
                 return report.value;
             } else {
-                throw new Phantom.Error('Data validation failed');
+                throw new Pharmacy.Error('Data validation failed');
             }
         });
     };
