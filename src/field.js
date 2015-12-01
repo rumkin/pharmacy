@@ -150,8 +150,8 @@
                 value = result.value;
                 report.addIssue({
                     path: this.path.concat(result.path || []),
-                    rule: result.name || check.name,
-                    value: value,
+                    rule: result.rule || check.name,
+                    value: result.value,
                     accept: result.accept,
                     current: result.current
                 });
