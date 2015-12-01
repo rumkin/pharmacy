@@ -149,11 +149,11 @@
             } else if (result && typeof result === 'object') {
                 value = result.value;
                 report.addIssue({
-                    path: this.path.concat(result.path),
+                    path: this.path.concat(result.path || []),
                     rule: result.name || check.name,
                     value: value,
                     accept: result.accept,
-                    current: result.got
+                    current: result.current
                 });
             } else {
                 report.addIssue({
