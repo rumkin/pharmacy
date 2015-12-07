@@ -4,3 +4,6 @@ node_modules/
 tmp/
 log/
 pid/
+
+html-report
+lib-cov

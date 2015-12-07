@@ -35,9 +35,10 @@
             });
         }
 
-        if (typeof options.field === 'object') {
+        if (options.hasOwnProperty('field')) {
             let field = options.field;
-            if (field instanceof Pharmacy.Field === false) {
+
+            if (typeof field === 'object') {
                 // Extend Pharmacy.Field with new methods and properties.
                 let Field = function (options) {
                     Pharmacy.Field.call(this, options);
@@ -49,7 +50,7 @@
                 });
 
                 this.Field = Field;
-            } else {
+            } else if (typeof field === 'function') {
                 this.Field = field;
             }
         } else {

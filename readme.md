@@ -1,5 +1,7 @@
 # Pharmacy
 
+![Travis CI](https://img.shields.io/travis/rumkin/pharmacy.png)
+
 Pharmacy is a library for building validators and sanitizers. It is powered with
 promises to make all operations fully asynchronous.
 

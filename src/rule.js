@@ -28,18 +28,38 @@
             throw new Error('Options should be a function or object');
         }
 
-        ['field', 'filter', 'validate'].forEach((name) => {
-            if (! options.hasOwnProperty(name)) {
-                return;
-            }
-            var isFunction = (typeof options[name] === 'function');
+        // Add field method
+        if (options.hasOwnProperty('field')) {
+            let isFunction = (typeof options.field === 'function');
 
             if (! isFunction) {
-                throw new Error('Rule option ' + name + ' should be a function or null');
-            } else {
-                this[name] = options[name];
+                throw new Error('Option `field` should be a function');
             }
-        });
+
+            this.field = options.field;
+        }
+
+        // Add filter method
+        if (options.hasOwnProperty('filter')) {
+            let isFunction = (typeof options.filter === 'function');
+
+            if (! isFunction) {
+                throw new Error('Option `filter` should be a function');
+            }
+
+            this.filter = options.filter;
+        }
+
+        // Add validate method
+        if (options.hasOwnProperty('validate')) {
+            let isFunction = (typeof options.validate === 'function');
+
+            if (! isFunction) {
+                throw new Error('Option `validate` should be a function');
+            }
+
+            this.validate = options.validate;
+        }
     }
 
     /**
