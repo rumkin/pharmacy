@@ -1,6 +1,6 @@
 {
   "name": "pharmacy",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Browser and Node.js library for creating validators and sanitizers",
   "keywords": ["validation", "validator", "validate", "sanitise", "sanitiser", "sanitation"],
   "repository": "rumkin/pharmacy",
