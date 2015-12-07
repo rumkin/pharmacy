@@ -21,7 +21,7 @@
     "unit.js": "^2.0.0"
   },
   "scripts": {
-    "test": "$NODE node_modules/mocha/bin/mocha test/*.spec.js",
+    "test": "make test",
     "coveralls": "cat coverage/lcov.info | node_modules/.bin/coveralls"
   },
   "tonicExampleFilename": "examples/tonic.js",
