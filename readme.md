@@ -1,6 +1,7 @@
 # Pharmacy
 
 ![Travis CI](https://img.shields.io/travis/rumkin/pharmacy.png)
+[![Coverage Status](https://coveralls.io/repos/rumkin/pharmacy/badge.svg?branch=master)](https://coveralls.io/r/rumkin/pharmacy?branch=master)
 
 Pharmacy is a library for building validators and sanitizers. It is powered with
 promises to make all operations fully asynchronous.
