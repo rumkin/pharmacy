@@ -1,14 +1,6 @@
-;(function () {
-  'use strict';
+'use strict';
 
-  var Pharmacy;
-  if (typeof module === 'object' && 'exports' in module) {
-    module.exports = Recipe;
-    Pharmacy = require('./pharmacy.js');
-  } else if (typeof window === 'object' && this === window) {
-    window.Pharmacy.Recipe = Recipe;
-    Pharmacy = window.Pharmacy;
-  }
+module.exports = Recipe;
 
   /**
    * Recipe is a set of rules. In other words is a complete schema for a given
@@ -68,5 +60,3 @@
       return new this(recipe);
     }
   };
-
-})();
