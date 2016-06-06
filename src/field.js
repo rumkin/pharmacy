@@ -75,7 +75,6 @@ return field;
 */
 Field.prototype.validate = function () {
 if (this.report) {
-    // TODO What to do with error?
     return Promise.resolve(this.report);
 }
 
