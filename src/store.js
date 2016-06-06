@@ -160,10 +160,11 @@ Store.prototype.hasRecipe = function (name) {
 * only if there is some extra error occurs while validation process.
 *
 * @param  {*} value Value data.
-* @param  {Pharmacey.Recipe|string|object} Recipe to validate value.
+* @param  {Pharmacy.Recipe|string|object} recipe Recipe to validate value.
+* @param  {object} options Validation options like initial path.
 * @return {Promise} Return a promise.
 */
-Store.prototype.validate = function (value, recipe) {
+Store.prototype.validate = function (value, recipe, options) {
     if (typeof recipe === 'object' && recipe !== null) {
         recipe = Pharmacy.Recipe.to(recipe);
     } else if (typeof recipe === 'string') {
@@ -172,8 +173,12 @@ Store.prototype.validate = function (value, recipe) {
         throw new Error('Recipe should be an object or a string');
     }
 
-    var field = new this.Field({
+    var opts = Object.assign({
         path: null,
+    }, options);
+
+    var field = new this.Field({
+        path: opts.path,
         value: value,
         recipe: recipe,
         store: this

@@ -200,6 +200,30 @@ describe('pharmacy store object', function () {
         });
     });
 
+    it('Should overwrite path with options.path', function () {
+        var message = 'Test';
+        var store = new pharmacy.Store({
+            rules: {
+                type(accept, value) {
+                    return false;
+                }
+            }
+        });
+
+        return store.validate(null, {type: true}, {path: ['this']})
+        .then(function(report){
+            test.bool(report.isValid())
+                .isFalse();
+
+            var issues = report.issues;
+
+            test.object(issues[0])
+                .hasOwnProperty('path');
+
+            test.object(issues[0].path).is(['this']);
+        });
+    });
+
     it('Sanitize method should return a promise', function () {
         var store = new pharmacy.Store({
             rules: {
