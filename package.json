@@ -1,6 +1,6 @@
 {
   "name": "pharmacy",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Browser and Node.js library for creating validators and sanitizers",
   "keywords": [
     "validation",

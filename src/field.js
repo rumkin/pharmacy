@@ -25,7 +25,12 @@ if (typeof options !== 'object') {
   throw new Error('Options should be an object');
 }
 
-this.path = options.path || [];
+if (options.path) {
+    this.path = options.path.slice();
+} else {
+    this.path = [];
+}
+
 this.value = options.value;
 this.store = options.store;
 this.recipe = options.recipe;
