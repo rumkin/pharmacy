@@ -40,3 +40,26 @@ Report.prototype.isValid = function () {
 Report.prototype.addIssue = function (issue) {
     this.issues.push(issue);
 };
+
+/**
+ * Check if report has a specified issue.
+ *
+ * @param  {string|string[]}  path Array of keys or path koined with a dot.
+ * @return {Boolean}      Return true if there is at list one issue.
+ */
+Report.prototype.hasIssue = function(path) {
+    let p;
+    if (Array.isArray(path)) {
+        p = path.join('.');
+    } else {
+        p = path;
+    }
+
+    for (let issue of this.issues) {
+        if (issue.path.join('.') === p) {
+            return true;
+        }
+    }
+
+    return false;
+};

@@ -224,6 +224,44 @@ describe('pharmacy store object', function () {
         });
     });
 
+    it('Should find invalid issues with hasIssue() and string path', function () {
+        var message = 'Test';
+        var store = new pharmacy.Store({
+            rules: {
+                type(accept, value) {
+                    return false;
+                }
+            }
+        });
+
+        return store.validate(null, {type: true}, {path: ['this', 'value']})
+        .then(function(report){
+            test.bool(report.isValid())
+                .isFalse();
+
+            test.bool(report.hasIssue('this.value')).isTrue()
+        });
+    });
+
+    it('Should find invalid issues with hasIssue() and array path', function () {
+        var message = 'Test';
+        var store = new pharmacy.Store({
+            rules: {
+                type(accept, value) {
+                    return false;
+                }
+            }
+        });
+
+        return store.validate(null, {type: true}, {path: ['this', 'value']})
+        .then(function(report){
+            test.bool(report.isValid())
+                .isFalse();
+
+            test.bool(report.hasIssue(['this', 'value'])).isTrue()
+        });
+    });
+
     it('Sanitize method should return a promise', function () {
         var store = new pharmacy.Store({
             rules: {
