@@ -1,6 +1,6 @@
 {
   "name": "pharmacy",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Browser and Node.js library for creating validators and sanitizers",
   "keywords": [
     "validation",
@@ -27,6 +27,6 @@
   "tonicExampleFilename": "examples/tonic.js",
   "license": "MIT",
   "dependencies": {
-    "validation-report": "^1.0.0"
+    "validation-report": "^1.2.0"
   }
 }
