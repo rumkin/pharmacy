@@ -1,6 +1,6 @@
 'use strict';
 
-var Pharmacy = require('./pharmacy.js');
+const Pharmacy = require('./pharmacy.js');
 module.exports = Store;
 
 
@@ -73,7 +73,7 @@ Store.prototype.addRule = function (name, rule) {
 */
 Store.prototype.getRule = function (name) {
     if (! this.hasRule(name)) {
-      throw new Error('Rule "' + name + '" not found');
+        throw new Error('Rule "' + name + '" not found');
     }
 
     return this._rules[name];
@@ -87,7 +87,7 @@ Store.prototype.getRule = function (name) {
 */
 Store.prototype.findRule = function (name) {
     if (! this.hasRule(name)) {
-      return;
+        return;
     }
 
     return this._rules[name];
@@ -124,7 +124,7 @@ Store.prototype.addRecipe = function (name, recipe) {
 */
 Store.prototype.getRecipe = function (name) {
     if (! this.hasRecipe(name)) {
-      throw new Error('Recipe "' + name + '" not found.');
+        throw new Error('Recipe "' + name + '" not found.');
     }
 
     return this._recipes[name];
